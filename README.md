@@ -17,8 +17,7 @@ These Matlab tools are freely distributed and intended to help neuroimaging rese
 
 There are two aspects of longitudinal data that require correct modeling: The mean response over time and the covariance among repeated measures on the same individual. I hope these tools can serve for such modeling purpose as they provide functionality for exploratory data visualization, model specification, model selection, parameter estimation, inference and power analysis including sample size estimation. They are specially targeted to be used with Freesurfer's data but can be used with any other data as long as they are loaded into Matlab and put into the appropriate format. Here are some recommendations about how to use these tools.
 
-The lme Matlab toolbox is also distributed within Freesurfer since Freesurfer's v5.2 release.
-
+The lme Matlab toolbox is also distributed within Freesurfer since Freesurfer's v5.2 release.  An optional sample dataset which can be used to become familiar with the LME Matlab tools can be found at ftp://surfer.nmr.mgh.harvard.edu/pub/data/long_mixed_effects_tools-data.tar.gz
 
 OUTLINE
 1-Preparing your data
