@@ -22,11 +22,11 @@ Qdec = [];
 i = 1;
 while ischar(tline)
     j = 1;
-    [str,remain] = strtok(tline, ' ');   
+    [str,remain] = strtok(tline);   
     while ~isempty(str)
         Qdec{i,j} = str;
         j = j + 1;
-        [str,remain] = strtok(remain, ' ');
+        [str,remain] = strtok(remain);
     end
     i = i + 1;
     tline = fgetl(fid);
