@@ -82,6 +82,6 @@ if F<0
     F = 0;
 end;
 fstats.F = F;
-fstats.pval = 1-fcdf(F,szC,m);
+fstats.pval = max([1-fcdf(F,szC,m), 1e-30]);
 fstats.sgn = sign(C*Bhat);
 fstats.df = [szC m];

@@ -112,7 +112,7 @@ parfor i=1:nv
            Fstat = 0; 
         end;
         F(i) = Fstat;
-        pval(i) = 1-fcdf(Fstat,szC,m);
+        pval(i) = max([1-fcdf(Fstat,szC,m), 1e-30]);
         contrast = C*Bhat;
         sgn(i) = sign(contrast(1));
         df(:,i) = [szC;m];
