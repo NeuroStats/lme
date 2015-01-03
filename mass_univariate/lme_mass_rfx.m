@@ -4,20 +4,24 @@ function [Rfx,nrfx,Bhat] = lme_mass_rfx(stats,X,Zcols,Y,ni,maskvtx)
 % Returns the subject-specific random effects estimates at each vertex.
 %
 % Input
-% stats: Structure array containing statistiscs for every voxel/vertex 
+% stats: Structure array containing statistics for every voxel/vertex 
 % (generated with either lme_mass_fit_Rgw or lme_mass_fit_vw).
 % X: Ordered design matrix (according to time for each subject).
 % maskvtx: Mask's vertices (1-based). Default [] (all vertices included).
 % Zcols: Vector with the indices of the colums of X that are considered as
 % random effects.
-% Y: Ordered data matrix (n x nv, n=#total number of scans and nv=# of 
+% Y: Ordered data matrix (n x nv, n=total number of scans and nv=number of 
 % vertices/voxels).
-% ni: Vector whose entries are the number of repeated measures for each
+% ni: Vector whose m entries are the number of repeated measures for each
 % subject (ordered according to X).
 % maskvtx: Mask's vertices (1-based). Default [] (all vertices included).
 %
 % Output
-% Rfx: Estimated subject-especific random effects.
+% Rfx: Estimated subject-especific random effects matrix (m x nrfx*nv). The columns 
+% of this matrix are grouped by vertex. For example if there are two random effects
+% in the model then the first two columns contain the subject-specific random effect 
+% coefficients for the first vertex, then the next two columns contain the 
+% subject-specific random effect coefficients for the second vertex and so on...
 % nrfx: Number of random effects (length(Zcols)).
 % Bhat: Population-level regression coefficients in stats stacked in one matrix.
 %
