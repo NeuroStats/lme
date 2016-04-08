@@ -16,7 +16,7 @@ function [stats,st,a,b] = lme_mass_RgFSfit(X,Zcols,Y,ni,Dist,model,prs,e)
 % the region.
 % model: Spatial model for the covariance matrix of the region. It can be
 % 'exp' or 'sph' or 'gauss'. Default 'exp'.
-% prs: Number of workers for parallel computing. Default 8;
+% prs: Number of workers for parallel computing. Default numcores;
 % e: Convergence epsilon (gradient's norm). Default 1;
 %
 % Output
@@ -45,7 +45,7 @@ if nargin < 5
 elseif nargin < 8
     e = 0.1;
     if nargin < 7
-        prs = 8;
+        prs = feature('numcores');
         if nargin < 6
             model = 'exp';
         end;
