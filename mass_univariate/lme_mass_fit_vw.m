@@ -15,7 +15,7 @@ function [stats,st] = lme_mass_fit_vw(X,Zcols,Y,ni,maskvtx,fname,prs,e,Xrows)
 % maskvtx: Mask's vertices (1-based). Default [] (all vertices included).
 % fname: File name to save outputs. Default [] (no output is saved to any
 % file).
-% prs: Number of workers for parallel computing. Default 8;
+% prs: Number of workers for parallel computing. Default numcores;
 % e: Convergence epsilon (gradient's norm). Default 10^-1;
 % Xrows: Optional matrix (nmxnv) whos colums contain ones or zeros indicating 
 % which rows of X are/are not going to be considered at each voxel/vertex
@@ -47,7 +47,7 @@ elseif nargin < 9
     if nargin < 8
         e = 10^-1;
         if nargin < 7
-            prs = 8;
+            prs = feature('numcores');
             if nargin < 6
                 fname = [];
                 if nargin < 5
